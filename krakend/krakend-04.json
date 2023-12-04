@@ -81,12 +81,12 @@
       "output_encoding": "json",
       "backend": [
         {
-          "url_pattern": "/users/github",
+          "url_pattern": "/test",
           "encoding": "json",
           "sd": "static",
           "method": "GET",
           "host": [
-            "https://api.github.com"
+            "https://586448e340aa4d838a27df2c6ad62523.api.mockbin.io"
           ],
           "disable_host_sanitize": false
         }

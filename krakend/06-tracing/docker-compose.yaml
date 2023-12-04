@@ -5,7 +5,7 @@ services:
     ports:
       - "3890:3890"
     volumes:
-      - /Users/edgar/OneDrive/skalena/2023/qriar/eventos/devops-bootcamp-01/krakend-06.json:/etc/krakend/krakend.json
+      - /Users/edgar/OneDrive/skalena/2023/qriar/eventos/krakend-apisix-workshop/krakend/krakend-06.json:/etc/krakend/krakend.json
   jaeger:
     image: jaegertracing/all-in-one:latest
     ports:
