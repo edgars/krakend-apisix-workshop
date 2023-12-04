@@ -1,0 +1,7 @@
+POST https://devops-bootcamp.on.qriarlabs.com/realms/krakend/protocol/openid-connect/token HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+client_id=krakend_client
+&grant_type=client_credentials
+&client_secret=GfFmlMT8Yei3ViHJRMNib4TXR9HoNGnv
+&scope=openid

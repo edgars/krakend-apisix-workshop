@@ -1,0 +1,23 @@
+PUT http://127.0.0.1:9180/apisix/admin/routes/7 HTTP/1.1
+X-API-KEY: edd1c9f034335f136f87ad84b625c8f1
+
+{
+  "name": "Github CEP API",
+  "methods": ["GET"],
+  "uri": "/api-github/*",
+        "plugins": {
+        "proxy-rewrite": {
+            "method": "GET",
+            "regex_uri": [
+                "ˆ/api-github/(.*)","/$1"
+            ]
+        }
+       },
+  "upstream": {
+    "type": "roundrobin",
+    "scheme": "https",
+    "nodes": {
+      "api.github.com": 1
+    }
+  }
+}

@@ -1,0 +1,4 @@
+GET http://localhost:3890/v1/devjobs
+#Authorization: Bearer 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
+
+#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

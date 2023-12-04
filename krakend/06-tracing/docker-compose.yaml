@@ -1,0 +1,23 @@
+version: '3'
+services:
+  krakend:
+    image: devopsfaith/krakend
+    ports:
+      - "3890:3890"
+    volumes:
+      - /Users/edgar/OneDrive/skalena/2023/qriar/eventos/devops-bootcamp-01/krakend-06.json:/etc/krakend/krakend.json
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "3335:16686" # Jaeger UI
+      - "6831:6831"   # Agent UDP Thrift
+      - 14268:14268 # http
+    environment:
+      - COLLECTOR_ZIPKIN_HTTP_PORT=9411
+
+  jaeger-ui:
+    image: jaegertracing/all-in-one
+    ports:
+      - "16686:16686"
+    environment:
+      - COLLECTOR_ZIPKIN_HTTP_PORT=9411

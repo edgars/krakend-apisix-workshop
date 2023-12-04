@@ -1,0 +1,32 @@
+{
+  "$schema": "https://www.krakend.io/schema/v3.json",
+  "version": 3,
+  "name": "DevOpsBootCamp",
+  "@comment": "docker run -p 3890:3890 -v $PWD:/etc/krakend/ devopsfaith/krakend:2.4.3 run -c krakend-01.json",
+  "timeout": "3000ms",
+  "cache_ttl": "300s",
+  "output_encoding": "json",
+  "port": 3890,
+  "debug_endpoint": true,
+  "echo_endpoint": true,
+  "sequential_start": true,
+  "endpoints": [
+    {
+      "endpoint": "/v1/github-proxy",
+      "method": "GET",
+      "output_encoding": "json",
+      "backend": [
+        {
+          "url_pattern": "/users/github",
+          "encoding": "json",
+          "sd": "static",
+          "method": "GET",
+          "host": [
+            "https://api.github.com"
+          ],
+          "disable_host_sanitize": false
+        }
+      ]
+    }
+  ]
+}
